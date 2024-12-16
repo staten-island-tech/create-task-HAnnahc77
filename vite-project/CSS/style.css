@@ -1,0 +1,29 @@
+body,
+html,
+* {
+    font-size: 10px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --white: #ece9df; 
+    --black: #1c2c3f;
+    --pink: #ae5659;
+
+    --h1: 7.594rem;
+    --h2: 5.063rem;
+    --h3: 3.375rem;
+    --p: 2.25rem;
+}
+
+h1 {
+    font-size: var(--h1);
+}
+
+body {
+    background-color: var(--white);
+    color: var(--black);
+    text-align: center;
+}
