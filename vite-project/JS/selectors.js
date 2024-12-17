@@ -1,4 +1,6 @@
-const DOMSelectors = {};
+const DOMSelectors = {
+  spacing: document.querySelector(".spacing"),
+};
 const recipes = [
   {
     name: "Spaghetti Carbonara",
