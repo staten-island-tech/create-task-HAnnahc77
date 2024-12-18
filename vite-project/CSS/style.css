@@ -13,17 +13,52 @@ html,
     --pink: #ae5659;
 
     --h1: 7.594rem;
-    --h2: 5.063rem;
-    --h3: 3.375rem;
-    --p: 2.25rem;
+    --h2: 3.75rem;
+    --h3: 2.25rem;
+    --p: 1.75rem;
 }
 
 h1 {
     font-size: var(--h1);
 }
 
+h2 {
+    font-size: var(--h2);
+}
+
+h3 {
+    font-size: var(--h3);
+}
+
+p {
+    font-size: var(--p);
+}
+
 body {
     background-color: var(--white);
     color: var(--black);
     text-align: center;
+}
+
+.spacing {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.card {
+    padding: 5px;
+    margin-bottom: 10px;
+    border-width: 3px;
+    border-style: solid;
+    color: var(--pink);
+    border-color: var(--black);
+    background-color: var(--white);
+    width: 400px;
+}
+
+img {
+    object-fit: cover;
+    width: 64%;
+    height: 80%;
 }

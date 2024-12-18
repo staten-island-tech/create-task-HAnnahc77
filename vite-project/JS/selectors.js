@@ -4,7 +4,7 @@ const DOMSelectors = {
 const recipes = [
   {
     name: "Spaghetti Carbonara",
-    image: "https://example.com/spaghetti-carbonara.jpg",
+    image: "/img1.jpg",
     ingredients: [
       "spaghetti",
       "eggs",
@@ -17,7 +17,7 @@ const recipes = [
   },
   {
     name: "Chicken Tikka Masala",
-    image: "https://example.com/chicken-tikka-masala.jpg",
+    image: "/img2.jpg",
     ingredients: [
       "chicken",
       "yogurt",
@@ -30,13 +30,13 @@ const recipes = [
   },
   {
     name: "Caesar Salad",
-    image: "https://example.com/caesar-salad.jpg",
+    image: "/img3.jpg",
     ingredients: ["romaine lettuce", "parmesan", "croutons", "Caesar dressing"],
     genre: "American",
   },
   {
     name: "Sushi Rolls",
-    image: "https://example.com/sushi-rolls.jpg",
+    image: "/img4.jpg",
     ingredients: [
       "sushi rice",
       "nori",
@@ -49,7 +49,7 @@ const recipes = [
   },
   {
     name: "Tacos",
-    image: "https://example.com/tacos.jpg",
+    image: "/img5.jpg",
     ingredients: [
       "taco shells",
       "ground beef",
@@ -62,7 +62,7 @@ const recipes = [
   },
   {
     name: "Beef Wellington",
-    image: "https://example.com/beef-wellington.jpg",
+    image: "/img6.jpg",
     ingredients: [
       "beef tenderloin",
       "puff pastry",
@@ -74,7 +74,7 @@ const recipes = [
   },
   {
     name: "Lasagna",
-    image: "https://example.com/lasagna.jpg",
+    image: "/img7.jpg",
     ingredients: [
       "lasagna noodles",
       "ground beef",
@@ -86,13 +86,13 @@ const recipes = [
   },
   {
     name: "Ramen",
-    image: "https://example.com/ramen.jpg",
+    image: "/img8.jpg",
     ingredients: ["ramen noodles", "pork", "egg", "broth", "scallions", "nori"],
     genre: "Japanese",
   },
   {
     name: "Vegetable Stir Fry",
-    image: "https://example.com/vegetable-stir-fry.jpg",
+    image: "/img9.jpg",
     ingredients: [
       "broccoli",
       "carrot",
@@ -105,7 +105,7 @@ const recipes = [
   },
   {
     name: "Chicken Alfredo",
-    image: "https://example.com/chicken-alfredo.jpg",
+    image: "/img10.jpg",
     ingredients: [
       "fettuccine",
       "chicken breast",
@@ -118,7 +118,7 @@ const recipes = [
   },
   {
     name: "Falafel",
-    image: "https://example.com/falafel.jpg",
+    image: "/img11.jpg",
     ingredients: [
       "chickpeas",
       "garlic",
@@ -131,7 +131,7 @@ const recipes = [
   },
   {
     name: "Eggplant Parmesan",
-    image: "https://example.com/eggplant-parmesan.jpg",
+    image: "/img12.jpg",
     ingredients: [
       "eggplant",
       "tomato sauce",
@@ -143,7 +143,7 @@ const recipes = [
   },
   {
     name: "Banh Mi",
-    image: "https://example.com/banh-mi.jpg",
+    image: "/img13.jpg",
     ingredients: [
       "baguette",
       "pork",
@@ -156,19 +156,19 @@ const recipes = [
   },
   {
     name: "Peking Duck",
-    image: "https://example.com/peking-duck.jpg",
+    image: "/img14.jpg",
     ingredients: ["duck", "hoisin sauce", "pancakes", "scallions", "cucumber"],
     genre: "Chinese",
   },
   {
     name: "Pad Thai",
-    image: "https://example.com/pad-thai.jpg",
+    image: "/img15.jpg",
     ingredients: ["rice noodles", "shrimp", "tofu", "peanuts", "lime", "egg"],
     genre: "Thai",
   },
   {
     name: "Moussaka",
-    image: "https://example.com/moussaka.jpg",
+    image: "/img16.jpg",
     ingredients: [
       "eggplant",
       "ground lamb",
@@ -180,13 +180,13 @@ const recipes = [
   },
   {
     name: "Shakshuka",
-    image: "https://example.com/shakshuka.jpg",
+    image: "/img17.jpg",
     ingredients: ["eggs", "tomatoes", "onions", "peppers", "garlic", "spices"],
     genre: "Middle Eastern",
   },
   {
     name: "Paella",
-    image: "https://example.com/paella.jpg",
+    image: "/img18.jpg",
     ingredients: [
       "rice",
       "seafood",
@@ -199,7 +199,7 @@ const recipes = [
   },
   {
     name: "Chicken Parmesan",
-    image: "https://example.com/chicken-parmesan.jpg",
+    image: "/img19.jpg",
     ingredients: [
       "chicken breast",
       "tomato sauce",
@@ -211,7 +211,7 @@ const recipes = [
   },
   {
     name: "Pasta Primavera",
-    image: "https://example.com/pasta-primavera.jpg",
+    image: "/img20.jpg",
     ingredients: [
       "pasta",
       "tomatoes",

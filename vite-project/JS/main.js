@@ -1,6 +1,6 @@
 import "../CSS/style.css";
-import { recipes } from "./selectors.js";
 import { DOMSelectors } from "./selectors.js";
+import { recipes } from "./selectors.js";
 
 function insertCards(recipe) {
   DOMSelectors.spacing.insertAdjacentHTML(
@@ -14,6 +14,4 @@ function insertCards(recipe) {
   );
 }
 
-insertCards(recipe);
-
-insertCards();
+recipes.forEach((recipe) => insertCards(recipe));
