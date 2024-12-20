@@ -59,6 +59,8 @@ body {
 
 img {
     object-fit: cover;
+    width: 64%;
+    height: 80%;
 }
 
 button {
