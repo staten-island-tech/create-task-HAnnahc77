@@ -2,6 +2,7 @@ const DOMSelectors = {
   spacing: document.querySelector(".spacing"),
   card: document.querySelector(".card"),
   goBackButton: document.querySelector(".goBackButton"),
+  viewDetailsButton: document.querySelector(".viewDetailsButton"),
 };
 const recipes = [
   {
