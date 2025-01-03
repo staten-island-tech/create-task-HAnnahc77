@@ -14,26 +14,7 @@ function insertCards(recipe) {
   );
 }
 
-function viewInfo() {
-  recipes.forEach((recipe) =>
-    DOMSelectors.viewDetailsButton.addEventListener(
-      "click",
-      DOMSelectors.spacing.insertAdjacentHTML(
-        "beforeend",
-        `<div class="card">
-  <h2 id="card-header">${recipe.name}</h2>
-  <img src="${recipe.image}" alt="Album Image">
-  <h3>${recipe.genre}</h3>
-  <h4>Ingredients:</h4>
-  <ul>${recipe.ingredients}</ul>
-  <h4>Steps:</h4>
-  <ol>${recipe.steps}</ol>
-  <button class="go-back">Go back</button>
-</div>`
-      )
-    )
-  );
-}
+
 function viewCards() {
   recipes.forEach((recipe) => insertCards(recipe));
 }
