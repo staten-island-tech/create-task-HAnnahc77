@@ -3,6 +3,7 @@ const DOMSelectors = {
   card: document.querySelector(".card"),
   goBackButton: document.querySelector(".goBackButton"),
   viewDetailsButton: document.querySelector(".viewDetailsButton"),
+  goBackButton: document.querySelector(".goBackButton"),
 };
 const recipes = [
   {

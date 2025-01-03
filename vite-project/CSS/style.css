@@ -40,15 +40,10 @@ body {
 }
 
 .spacing {
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    gap: 1.5rem;
-    margin-left: auto;
-    margin-right: auto;
+    gap: 10px;
 }
 
 .card {
@@ -60,14 +55,14 @@ body {
     color: var(--pink);
     border-color: var(--black);
     background-color: var(--white);
-    width: calc(33.333% - 20px);
+    width: 400px;
     align-items: center;
 }
 
 img {
+    width: 30rem;
+    height: 34rem;
     object-fit: cover;
-    width: 100%;
-    height: auto;
 }
 
 button {
