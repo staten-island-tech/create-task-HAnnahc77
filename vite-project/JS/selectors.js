@@ -1,9 +1,7 @@
 const DOMSelectors = {
   spacing: document.querySelector(".spacing"),
-  card: document.querySelector(".card"),
-  goBackButton: document.querySelector(".goBackButton"),
-  viewDetailsButton: document.querySelector(".viewDetailsButton"),
-  goBackButton: document.querySelector(".goBackButton"),
+  info: document.querySelector(".info"),
+  favoriteButton: document.querySelector(".favoriteButton"),
 };
 const recipes = [
   {
