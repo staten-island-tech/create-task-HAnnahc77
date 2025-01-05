@@ -2,7 +2,10 @@ const DOMSelectors = {
   spacing: document.querySelector(".spacing"),
   info: document.querySelector(".info"),
   favoriteButton: document.querySelector(".favoriteButton"),
+  stars: document.querySelectorAll(".starimg")
 };
+
+
 const recipes = [
   {
     name: "Spaghetti Carbonara",

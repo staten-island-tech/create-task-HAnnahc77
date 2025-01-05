@@ -2,9 +2,7 @@ import "../CSS/style.css";
 import { DOMSelectors } from "./selectors.js";
 import { recipes } from "./selectors.js";
 
-const favoriteRecipes = [
-
-];
+const favoriteRecipes = [];
 
 function insertCards(recipe) {
   DOMSelectors.spacing.insertAdjacentHTML(
@@ -28,14 +26,26 @@ function viewCards() {
   });
 }
 
+function getRecipeFromCard(card) {
+  const recipeName = card.getAttribute("data-name");
+  for (let i = 0; i < recipes.length; i++) {
+    if (recipes[i].name === recipeName) {
+      return recipes[i];
+    }
+  }
+  return '';
+}
+
+
 
 function viewInfo() {
   DOMSelectors.spacing.addEventListener("click", function (event) {
     if (event.target.classList.contains("viewDetailsButton")) {
-      const recipeName = event.target.closest(".card").getAttribute("data-name");
-      const recipe = recipes.find((recipe) => recipe.name === recipeName);
-      DOMSelectors.spacing.innerHTML = ''
-      DOMSelectors.info.innerHTML = ''
+      const card = event.target.closest(".card");  
+      const recipe = getRecipeFromCard(card);  
+      
+      DOMSelectors.spacing.innerHTML = '';
+      DOMSelectors.info.innerHTML = '';
       DOMSelectors.info.insertAdjacentHTML(
         "afterbegin",
         `
@@ -59,48 +69,47 @@ function viewInfo() {
   });
 }
 
+
 function handleStarClick() {
-  DOMSelectors.spacing.addEventListener("click", function (event) {
+  DOMSelectors.spacing.addEventListener("click", function (event) { 
     const stars = DOMSelectors.spacing.querySelectorAll(".starimg");
-    
+
     for (let i = 0; i < stars.length; i++) {
-      if (event.target === stars[i]) {
-        const card = event.target.closest(".card");
-        const recipeName = card.getAttribute("data-name");
-        const recipe = recipes.find((recipe) => recipe.name === recipeName);
-        
-        if (event.target.src.includes("whitestar.png")) {
-          event.target.src = "/yellowstar.png";
+      const star = stars[i];
+      const card = star.closest(".card"); 
+      const recipe = getRecipeFromCard(card); 
+      if (event.target === star) {
+        if (star.src.includes("whitestar.png")) {
+          star.src = "/yellowstar.png";
           if (!favoriteRecipes.includes(recipe)) {
             favoriteRecipes.push(recipe);
           }
-        } else {
-          event.target.src = "/whitestar.png";
-          favoriteRecipes = favoriteRecipes.filter((r) => r.name !== recipeName);
+        } 
+        else {
+          star.src = "/whitestar.png";
+          favoriteRecipes = favoriteRecipes.filter((r) => r.name !== recipe.name);
         }
       }
     }
   });
 }
 
+function displayFavorites() {
+  DOMSelectors.favoriteButton.addEventListener("click", function () {
+    
+    // Use the favoriteRecipes array to filter and display the favorite recipes
+    DOMSelectors.spacing.innerHTML = '';  // Clear existing content
+
+    favoriteRecipes.forEach((recipe) => {
+      insertCards(recipe);  // Use your existing function to insert the recipe cards
+    });
+  });
+}
+
+
 viewCards();
 viewInfo();
 handleStarClick();
+displayFavorites();
 
 
-/*
-
-function displayFavorites() {
-DOMSelectors.favoriteButton.addEventListener("click", function () {
-  
-    const favoriteRecipes = recipes.filter((recipe) => recipe.genre.includes("Pop"));
-
-    DOMSelectors.spacing.innerHTML = '';
-
-    popAlbums.forEach((album) => {
-      insertCards(album);
-    });
-  });
-};
-
-*/
