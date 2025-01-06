@@ -5,6 +5,14 @@ import { recipes } from "./selectors.js";
 const favoriteRecipes = [];
 
 function insertCards(recipe) {
+  let starSrc = "/whitestar.png";
+  for (let i = 0; i < favoriteRecipes.length; i++) {
+    if (favoriteRecipes[i].name === recipe.name) {
+      starSrc = "/yellowstar.png"; 
+      break;
+    }
+  }
+
   DOMSelectors.spacing.insertAdjacentHTML(
     "beforeend",
     `<div class="card" data-name="${recipe.name}">
@@ -13,10 +21,11 @@ function insertCards(recipe) {
       <h3>${recipe.genre}</h3>
       <button class="viewDetailsButton">View details</button> 
       <div class="star"></div>
-      <img class="starimg" src="/whitestar.png" alt="Star, not favorited">
+      <img class="starimg" src="${starSrc}" alt="Star, ${starSrc === '/yellowstar.png' ? 'favorited' : 'not favorited'}">
     </div>`
   );
 }
+
 
 function viewCards() {
   DOMSelectors.spacing.innerHTML = '';
@@ -62,7 +71,8 @@ function viewInfo() {
 
       const goBackButton = DOMSelectors.info.querySelector('.goBackButton');
       goBackButton.addEventListener('click', function () {
-        DOMSelectors.spacing.innerHTML = '';
+         DOMSelectors.spacing.innerHTML = '';
+         DOMSelectors.info.innerHTML = '';
         viewCards();
       });
     }
@@ -96,12 +106,20 @@ function handleStarClick() {
 
 function displayFavorites() {
   DOMSelectors.favoriteButton.addEventListener("click", function () {
-    
-    // Use the favoriteRecipes array to filter and display the favorite recipes
-    DOMSelectors.spacing.innerHTML = '';  // Clear existing content
-
+    DOMSelectors.spacing.innerHTML = '';
+    DOMSelectors.info.innerHTML = '';
     favoriteRecipes.forEach((recipe) => {
-      insertCards(recipe);  // Use your existing function to insert the recipe cards
+      insertCards(recipe);
+    });
+  });
+}
+
+function displayAll() {
+  DOMSelectors.allButton.addEventListener("click", function() {
+    DOMSelectors.spacing.innerHTML = '';
+    DOMSelectors.info.innerHTML = '';
+    recipes.forEach((recipe) => {
+      insertCards(recipe);
     });
   });
 }
@@ -111,5 +129,6 @@ viewCards();
 viewInfo();
 handleStarClick();
 displayFavorites();
+displayAll();
 
 

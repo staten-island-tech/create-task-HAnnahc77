@@ -2,6 +2,7 @@ const DOMSelectors = {
   spacing: document.querySelector(".spacing"),
   info: document.querySelector(".info"),
   favoriteButton: document.querySelector(".favoriteButton"),
+  allButton: document.querySelector(".allButton"),
   stars: document.querySelectorAll(".starimg")
 };
 
