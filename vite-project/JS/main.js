@@ -77,39 +77,26 @@ function viewInfo() {
   });
 }
 
-function updateStarIcons() {
-  const stars = DOMSelectors.spacing.querySelectorAll(".starimg");
-
-  stars.forEach((star) => {
-    const card = star.closest(".card");
-    const recipe = getRecipeFromCard(card);
-
-    if (favoriteRecipes.some((r) => r.name === recipe.name)) {
-      star.src = "/yellowstar.png";
-    } else {
-      star.src = "/whitestar.png";
-    }
-  });
-}
-
 function handleStarClick() {
   DOMSelectors.spacing.addEventListener("click", function (event) {
     if (event.target.classList.contains("starimg")) {
       const star = event.target;
       const card = star.closest(".card");
       const recipe = getRecipeFromCard(card);
+      const isWhiteStar = star.getAttribute("src").includes("whitestar.png");
 
-      if (star.src.includes("whitestar.png")) {
-        star.src = "/yellowstar.png";
-
+      if (isWhiteStar) {
+        star.setAttribute("src", "/yellowstar.png");
         if (!favoriteRecipes.some((r) => r.name === recipe.name)) {
           favoriteRecipes.push(recipe);
         }
       } else {
-        star.src = "/whitestar.png";
-        favoriteRecipes = favoriteRecipes.filter((r) => r.name !== recipe.name);
+        star.setAttribute("src", "/whitestar.png");
+        const index = favoriteRecipes.findIndex((r) => r.name === recipe.name);
+        if (index !== -1) {
+          favoriteRecipes.splice(index, 1);
+        }
       }
-      updateStarIcons();
     }
   });
 }
