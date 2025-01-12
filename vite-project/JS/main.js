@@ -31,17 +31,19 @@ function viewCards() {
   recipes.forEach((recipe) => {
     insertCards(recipe);
   });
+  viewInfo();
 }
 
 function viewInfo() {
-  DOMSelectors.spacing.addEventListener("click", function (event) {
-    if (event.target.classList.contains("viewDetailsButton")) {
-      const card = event.target.closest(".card");
-      const recipeName = card.querySelector("h2").innerText;
-      const recipe = recipes.find((r) => r.name === recipeName);
+  const viewDetailButtons = DOMSelectors.spacing.querySelectorAll(".viewDetailsButton");
+  viewDetailButtons.forEach((viewDetailsButton) => {
+    viewDetailsButton.addEventListener("click", function () {
+      const card = viewDetailsButton.closest(".card");
+      const recipe = recipes.find((r) => r.name === card.querySelector("h2").innerText);
 
       DOMSelectors.spacing.innerHTML = "";
       DOMSelectors.info.innerHTML = "";
+
       DOMSelectors.info.insertAdjacentHTML(
         "afterbegin",
         `
@@ -63,48 +65,35 @@ function viewInfo() {
         DOMSelectors.spacing.innerHTML = "";
         DOMSelectors.info.innerHTML = "";
         viewCards();
+        handleStarClick();
       });
-    }
+    });
   });
 }
 
 function handleStarClick() {
-  DOMSelectors.spacing.addEventListener("click", function (event) {
-    if (event.target.classList.contains("starimg")) {
+  const starButtons = DOMSelectors.spacing.querySelectorAll(".starimg");
+
+  starButtons.forEach((starButton) => {
+    starButton.addEventListener("click", function (event) {
       const star = event.target;
       const card = star.closest(".card");
-      const recipeName = card.querySelector("h2").innerText;
-      const recipe = recipes.find((r) => r.name === recipeName);
-      const isWhiteStar = star.getAttribute("src").includes("whitestar.png");
+      const recipe = recipes.find((r) => r.name === card.querySelector("h2").innerText);
+      const isWhiteStar = star.getAttribute("src") === "/whitestar.png";
 
       if (isWhiteStar) {
         star.setAttribute("src", "/yellowstar.png");
-
-        let isInFavorites = false;
-        for (let i = 0; i < favoriteRecipes.length; i++) {
-          if (favoriteRecipes[i].name === recipe.name) {
-            isInFavorites = true;
-          }
-        }
-
-        if (!isInFavorites) {
+        if (!favoriteRecipes.some((r) => r.name === recipe.name)) {
           favoriteRecipes.push(recipe);
         }
       } else {
         star.setAttribute("src", "/whitestar.png");
-
-        let indexToRemove = -1;
-        for (let i = 0; i < favoriteRecipes.length; i++) {
-          if (favoriteRecipes[i].name === recipe.name) {
-            indexToRemove = i;
-          }
-        }
-
-        if (indexToRemove !== -1) {
-          favoriteRecipes.splice(indexToRemove, 1);
+        const index = favoriteRecipes.findIndex((r) => r.name === recipe.name);
+        if (index !== -1) {
+          favoriteRecipes.splice(index, 1);
         }
       }
-    }
+    });
   });
 }
 
@@ -115,12 +104,14 @@ function displayFavorites() {
     favoriteRecipes.forEach((recipe) => {
       insertCards(recipe);
     });
+    handleStarClick();
   });
 }
 
 function displayAll() {
   DOMSelectors.allButton.addEventListener("click", function () {
     viewCards();
+    handleStarClick();
   });
 }
 
